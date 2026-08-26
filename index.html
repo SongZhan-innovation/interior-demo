@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>森築空間設計 ARTISAN SPACE | 頂級室內設計與裝修工程</title>
+  <!-- 引入 Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- 引入 Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Noto Sans TC"', 'sans-serif'],
+            serif: ['"Cormorant Garamond"', 'serif'],
+          },
+          colors: {
+            brand: {
+              gold: '#B39A74',
+              dark: '#1A1A1A',
+              light: '#F8F7F4',
+              muted: '#707070'
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-brand-light text-brand-dark font-sans antialiased selection:bg-brand-gold selection:text-white">
+
+  <!-- 導覽列 Navbar -->
+  <nav class="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md z-50 border-b border-neutral-200">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <a href="#" class="flex flex-col">
+        <span class="text-xl font-bold tracking-widest text-brand-dark">森築空間設計</span>
+        <span class="text-[10px] tracking-[0.25em] text-brand-gold font-serif uppercase">Artisan Space Design</span>
+      </a>
+      <div class="hidden md:flex items-center space-x-8 text-sm font-medium tracking-wider text-neutral-600">
+        <a href="#about" class="hover:text-brand-gold transition-colors">品牌理念</a>
+        <a href="#portfolio" class="hover:text-brand-gold transition-colors">作品鑑賞</a>
+        <a href="#process" class="hover:text-brand-gold transition-colors">服務流程</a>
+        <a href="#contact" class="px-5 py-2.5 bg-brand-dark text-white rounded-full hover:bg-brand-gold transition-all duration-300">預約丈量</a>
+      </div>
+      <a href="#contact" class="md:hidden text-xs px-4 py-2 bg-brand-dark text-white rounded-full">預約諮詢</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section 首頁視覺大圖 -->
+  <section class="relative min-h-screen flex items-center justify-center pt-20">
+    <div class="absolute inset-0 z-0">
+      <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=2000&q=80" alt="高級室內裝潢" class="w-full h-full object-cover">
+      <div class="absolute inset-0 bg-black/40 backdrop-brightness-95"></div>
+    </div>
+    <div class="relative z-10 max-w-4xl mx-auto px-6 text-center text-white space-y-6">
+      <p class="font-serif italic text-lg md:text-2xl text-stone-200 tracking-widest">Timeless Elegance & Pure Living</p>
+      <h1 class="text-3xl md:text-6xl font-bold tracking-wide leading-tight">
+        訂製專屬於您的<br><span class="text-amber-200/90">空間生活美學</span>
+      </h1>
+      <p class="text-neutral-200 text-sm md:text-base max-w-xl mx-auto font-light leading-relaxed">
+        新成屋客製規劃 ‧ 老屋翻新重塑 ‧ 頂級商業空間<br>從光影動線到材質細節，為您構築理想居所。
+      </p>
+      <div class="pt-4 flex flex-col sm:flex-row justify-center gap-4">
+        <a href="#portfolio" class="px-8 py-3.5 border border-white text-white rounded-full hover:bg-white hover:text-brand-dark transition-all duration-300 text-sm tracking-wider">探索精選作品</a>
+        <a href="#contact" class="px-8 py-3.5 bg-brand-gold text-white rounded-full hover:bg-amber-600 transition-all duration-300 text-sm tracking-wider shadow-lg">立即線上預約</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 精選作品集 Portfolio -->
+  <section id="portfolio" class="py-24 max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16 space-y-3">
+      <span class="text-xs font-serif uppercase tracking-[0.3em] text-brand-gold block">Selected Works</span>
+      <h2 class="text-3xl md:text-4xl font-bold tracking-wider text-neutral-800">精選作品鑑賞</h2>
+      <div class="w-12 h-0.5 bg-brand-gold mx-auto mt-4"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- 作品卡片 1 -->
+      <div class="group relative overflow-hidden rounded-2xl bg-white shadow-sm border border-neutral-100 hover:shadow-xl transition-all duration-500">
+        <div class="aspect-[4/3] overflow-hidden bg-neutral-100">
+          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="客廳案例" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+        </div>
+        <div class="p-6">
+          <div class="flex justify-between items-baseline mb-2">
+            <h3 class="text-lg font-bold text-neutral-800 group-hover:text-brand-gold transition-colors">青埔 ‧ 侘寂光影</h3>
+            <span class="text-xs text-neutral-400">住宅空間 / 42 坪</span>
+          </div>
+          <p class="text-xs text-neutral-500 line-clamp-2">以溫潤微水泥與天然木質交織，引入大面自然採光，重塑現代簡約居所。</p>
+        </div>
+      </div>
+
+      <!-- 作品卡片 2 -->
+      <div class="group relative overflow-hidden rounded-2xl bg-white shadow-sm border border-neutral-100 hover:shadow-xl transition-all duration-500">
+        <div class="aspect-[4/3] overflow-hidden bg-neutral-100">
+          <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=800&q=80" alt="開放廚房" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+        </div>
+        <div class="p-6">
+          <div class="flex justify-between items-baseline mb-2">
+            <h3 class="text-lg font-bold text-neutral-800 group-hover:text-brand-gold transition-colors">竹北 ‧ 現代輕奢</h3>
+            <span class="text-xs text-neutral-400">新成屋 / 36 坪</span>
+          </div>
+          <p class="text-xs text-neutral-500 line-clamp-2">開放式中島餐廚與低調石材收納櫃體，展現大器且實用的生活動線。</p>
+        </div>
+      </div>
+
+      <!-- 作品卡片 3 -->
+      <div class="group relative overflow-hidden rounded-2xl bg-white shadow-sm border border-neutral-100 hover:shadow-xl transition-all duration-500">
+        <div class="aspect-[4/3] overflow-hidden bg-neutral-100">
+          <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=80" alt="主臥室" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+        </div>
+        <div class="p-6">
+          <div class="flex justify-between items-baseline mb-2">
+            <h3 class="text-lg font-bold text-neutral-800 group-hover:text-brand-gold transition-colors">新板 ‧ 靜謐沈著</h3>
+            <span class="text-xs text-neutral-400">老屋翻新 / 28 坪</span>
+          </div>
+          <p class="text-xs text-neutral-500 line-clamp-2">大地色織品與客製化隱藏收納系統，為屋主打造無壓力的靜心私領域。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 服務流程 Process -->
+  <section id="process" class="py-20 bg-white border-y border-neutral-200">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16 space-y-3">
+        <span class="text-xs font-serif uppercase tracking-[0.3em] text-brand-gold block">Work Process</span>
+        <h2 class="text-3xl md:text-4xl font-bold tracking-wider text-neutral-800">透明化服務流程</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+        <div class="p-6 rounded-xl bg-brand-light border border-neutral-100 space-y-3">
+          <span class="text-3xl font-serif font-bold text-brand-gold">01</span>
+          <h3 class="font-bold text-neutral-800">需求訪談與預算評估</h3>
+          <p class="text-xs text-neutral-500 leading-relaxed">深入了解家庭成員生活習慣、風格喜好與裝修預算範圍。</p>
+        </div>
+        <div class="p-6 rounded-xl bg-brand-light border border-neutral-100 space-y-3">
+          <span class="text-3xl font-serif font-bold text-brand-gold">02</span>
+          <h3 class="font-bold text-neutral-800">現場丈量與平面提案</h3>
+          <p class="text-xs text-neutral-500 leading-relaxed">實地勘查屋況、結構與管線，提供最佳格局配置圖與 3D 概念。</p>
+        </div>
+        <div class="p-6 rounded-xl bg-brand-light border border-neutral-100 space-y-3">
+          <span class="text-3xl font-serif font-bold text-brand-gold">03</span>
+          <h3 class="font-bold text-neutral-800">精準報價與專業施工</h3>
+          <p class="text-xs text-neutral-500 leading-relaxed">工料明細透明公開，專業監工團隊確保工期與施工品質。</p>
+        </div>
+        <div class="p-6 rounded-xl bg-brand-light border border-neutral-100 space-y-3">
+          <span class="text-3xl font-serif font-bold text-brand-gold">04</span>
+          <h3 class="font-bold text-neutral-800">完工驗收與售後保固</h3>
+          <p class="text-xs text-neutral-500 leading-relaxed">屋主逐項查驗點交，提供結構工程保固與終身諮詢服務。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 預約表單 Contact Form -->
+  <section id="contact" class="py-24 max-w-4xl mx-auto px-6">
+    <div class="bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-neutral-100">
+      <div class="text-center mb-10 space-y-2">
+        <h2 class="text-2xl md:text-3xl font-bold text-neutral-800">預約丈量 ‧ 開啟家的對話</h2>
+        <p class="text-xs md:text-sm text-neutral-500">填寫基本需求，我們的設計團隊將於 24 小時內與您聯繫。</p>
+      </div>
+
+      <form onsubmit="event.preventDefault(); alert('感謝您的填寫！這是一份展示 Demo，正式上線後將直接連動您的 LINE 或 Email！');" class="space-y-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <label class="block text-xs font-semibold text-neutral-600 mb-2">您的姓名 *</label>
+            <input type="text" required placeholder="王先生 / 林小姐" class="w-full px-4 py-3 rounded-xl border border-neutral-200 text-sm focus:outline-none focus:border-brand-gold bg-neutral-50">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-neutral-600 mb-2">聯絡電話 *</label>
+            <input type="tel" required placeholder="0912-345-678" class="w-full px-4 py-3 rounded-xl border border-neutral-200 text-sm focus:outline-none focus:border-brand-gold bg-neutral-50">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div>
+            <label class="block text-xs font-semibold text-neutral-600 mb-2">房屋地點</label>
+            <input type="text" placeholder="例：桃園中壢" class="w-full px-4 py-3 rounded-xl border border-neutral-200 text-sm focus:outline-none focus:border-brand-gold bg-neutral-50">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-neutral-600 mb-2">空間類型</label>
+            <select class="w-full px-4 py-3 rounded-xl border border-neutral-200 text-sm focus:outline-none focus:border-brand-gold bg-neutral-50 text-neutral-600">
+              <option>新成屋客變 / 裝修</option>
+              <option>中古屋老屋翻新</option>
+              <option>商業空間設計</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-neutral-600 mb-2">預算區間</label>
+            <select class="w-full px-4 py-3 rounded-xl border border-neutral-200 text-sm focus:outline-none focus:border-brand-gold bg-neutral-50 text-neutral-600">
+              <option>50 萬 - 100 萬</option>
+              <option>100 萬 - 200 萬</option>
+              <option>200 萬以上</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" class="w-full py-4 bg-brand-dark text-white rounded-xl font-medium tracking-widest hover:bg-brand-gold transition-all duration-300 shadow-md">
+          送出預約需求
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- 頁尾 Footer -->
+  <footer class="bg-brand-dark text-neutral-400 py-12 border-t border-neutral-800 text-xs">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+      <div class="text-center md:text-left">
+        <p class="font-bold text-white text-base tracking-wider mb-1">森築空間設計</p>
+        <p class="text-neutral-500">統編：00000000 ‧ 營業時間：週一至週五 09:00 - 18:00</p>
+      </div>
+      <p class="text-neutral-500">© 2026 Artisan Space Design. All rights reserved. (Demo Template)</p>
+    </div>
+  </footer>
+
+</body>
+</html>
