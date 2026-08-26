@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>森築空間設計 ARTISAN SPACE | 頂級室內設計與裝修工程</title>
+  <!-- 瀏覽器頁籤 Logo (同步雙層細框金菱形) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='86' height='86' x='7' y='7' rx='16' fill='%231F1F1F' stroke='%23B39A74' stroke-width='4'/%3E%3Crect x='36' y='36' width='28' height='28' transform='rotate(45 50 50)' fill='%23B39A74'/%3E%3C/svg%3E">
   <!-- 引入 Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- 引入 Google Fonts -->
@@ -36,9 +38,18 @@
   <!-- 導覽列 Navbar -->
   <nav class="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md z-50 border-b border-neutral-200">
     <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-      <a href="#" class="flex flex-col">
-        <span class="text-xl font-bold tracking-widest text-brand-dark">森築空間設計</span>
-        <span class="text-[10px] tracking-[0.25em] text-brand-gold font-serif uppercase">Artisan Space Design</span>
+      <!-- 導覽列 Logo -->
+      <a href="#" class="flex items-center gap-3 group">
+        <img 
+          id="brand-logo"
+          src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='86' height='86' x='7' y='7' rx='16' fill='%231F1F1F' stroke='%23B39A74' stroke-width='3' stroke-opacity='0.6'/%3E%3Crect x='36' y='36' width='28' height='28' transform='rotate(45 50 50)' fill='%23B39A74'/%3E%3C/svg%3E" 
+          alt="森築空間設計 Logo" 
+          class="w-8 h-8 object-contain rounded-md group-hover:scale-105 transition-transform duration-300"
+        >
+        <div class="flex flex-col justify-center">
+          <span class="text-[17px] font-bold tracking-[0.22em] text-neutral-900 leading-none">森築空間</span>
+          <span class="text-[10px] tracking-[0.3em] text-neutral-400 font-serif uppercase mt-1 font-medium">Artisan Design</span>
+        </div>
       </a>
       <div class="hidden md:flex items-center space-x-8 text-sm font-medium tracking-wider text-neutral-600">
         <a href="#about" class="hover:text-brand-gold transition-colors">品牌理念</a>
@@ -50,8 +61,8 @@
     </div>
   </nav>
 
-  <!-- Hero Section 首頁視覺大圖 -->
-  <section class="relative min-h-screen flex items-center justify-center pt-20">
+  <!-- Hero Section 首頁視覺大圖 (加入 id="about") -->
+  <section id="about" class="relative min-h-screen flex items-center justify-center pt-20">
     <div class="absolute inset-0 z-0">
       <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=2000&q=80" alt="高級室內裝潢" class="w-full h-full object-cover">
       <div class="absolute inset-0 bg-black/40 backdrop-brightness-95"></div>
