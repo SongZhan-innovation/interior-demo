@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>森築空間設計 ARTISAN SPACE | 頂級室內設計與裝修工程</title>
-  <!-- 瀏覽器頁籤 Logo (同步雙層細框金菱形) -->
+  <!-- 瀏覽器頁籤 Logo -->
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='86' height='86' x='7' y='7' rx='16' fill='%231F1F1F' stroke='%23B39A74' stroke-width='4'/%3E%3Crect x='36' y='36' width='28' height='28' transform='rotate(45 50 50)' fill='%23B39A74'/%3E%3C/svg%3E">
   <!-- 引入 Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -33,10 +33,10 @@
     }
   </script>
 </head>
-<body class="bg-brand-light text-brand-dark font-sans antialiased selection:bg-brand-gold selection:text-white">
+<body class="bg-brand-light text-brand-dark font-sans antialiased selection:bg-brand-gold selection:text-white relative">
 
   <!-- 導覽列 Navbar -->
-  <nav class="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md z-50 border-b border-neutral-200">
+  <nav class="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md z-40 border-b border-neutral-200/80">
     <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
       <!-- 導覽列 Logo -->
       <a href="#" class="flex items-center gap-3 group">
@@ -53,24 +53,24 @@
       </a>
       <div class="hidden md:flex items-center space-x-8 text-sm font-medium tracking-wider text-neutral-600">
         <a href="#about" class="hover:text-brand-gold transition-colors">品牌理念</a>
-        <a href="#portfolio" class="hover:text-brand-gold transition-colors">作品鑑賞</a>
+        <a href="#portfolio" class="hover:text-brand-gold transition-colors">精選案例</a>
         <a href="#process" class="hover:text-brand-gold transition-colors">服務流程</a>
-        <a href="#contact" class="px-5 py-2.5 bg-brand-dark text-white rounded-full hover:bg-brand-gold transition-all duration-300">預約丈量</a>
+        <a href="#contact" class="px-5 py-2.5 bg-brand-dark text-white rounded-full hover:bg-brand-gold transition-all duration-300 shadow-sm">預約丈量</a>
       </div>
       <a href="#contact" class="md:hidden text-xs px-4 py-2 bg-brand-dark text-white rounded-full">預約諮詢</a>
     </div>
   </nav>
 
-  <!-- Hero Section 首頁視覺大圖 (加入 id="about") -->
+  <!-- Hero Section 首頁視覺大圖 -->
   <section id="about" class="relative min-h-screen flex items-center justify-center pt-20">
     <div class="absolute inset-0 z-0">
       <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=2000&q=80" alt="高級室內裝潢" class="w-full h-full object-cover">
-      <div class="absolute inset-0 bg-black/40 backdrop-brightness-95"></div>
+      <div class="absolute inset-0 bg-black/45 backdrop-brightness-95"></div>
     </div>
     <div class="relative z-10 max-w-4xl mx-auto px-6 text-center text-white space-y-6">
       <p class="font-serif italic text-lg md:text-2xl text-stone-200 tracking-widest">Timeless Elegance & Pure Living</p>
       <h1 class="text-3xl md:text-6xl font-bold tracking-wide leading-tight">
-        訂製專屬於您的<br><span class="text-amber-200/90">空間生活美學</span>
+        訂製專屬於您的<br><span class="text-amber-200/90 font-serif">空間生活美學</span>
       </h1>
       <p class="text-neutral-200 text-sm md:text-base max-w-xl mx-auto font-light leading-relaxed">
         新成屋客製規劃 ‧ 老屋翻新重塑 ‧ 頂級商業空間<br>從光影動線到材質細節，為您構築理想居所。
@@ -82,19 +82,32 @@
     </div>
   </section>
 
-  <!-- 精選作品集 Portfolio -->
+  <!-- 精選作品集 Portfolio（含分類 Tab 與 Lightbox 互動） -->
   <section id="portfolio" class="py-24 max-w-7xl mx-auto px-6">
-    <div class="text-center mb-16 space-y-3">
+    <div class="text-center mb-12 space-y-3">
       <span class="text-xs font-serif uppercase tracking-[0.3em] text-brand-gold block">Selected Works</span>
       <h2 class="text-3xl md:text-4xl font-bold tracking-wider text-neutral-800">精選作品鑑賞</h2>
       <div class="w-12 h-0.5 bg-brand-gold mx-auto mt-4"></div>
+      <p class="text-xs text-neutral-400 max-w-md mx-auto pt-2">點擊任一案例卡片，即可展開查看完整空間細節與設計概念</p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <!-- 分類切換按鈕 -->
+    <div class="flex flex-wrap justify-center gap-2 md:gap-3 mb-12">
+      <button onclick="filterCategory('all')" class="cat-btn px-5 py-2 rounded-full text-xs font-medium tracking-wider transition-all bg-brand-dark text-white" data-cat="all">全部作品</button>
+      <button onclick="filterCategory('residential')" class="cat-btn px-5 py-2 rounded-full text-xs font-medium tracking-wider transition-all bg-white border border-neutral-200 text-neutral-600 hover:border-brand-gold" data-cat="residential">新成屋設計</button>
+      <button onclick="filterCategory('renovation')" class="cat-btn px-5 py-2 rounded-full text-xs font-medium tracking-wider transition-all bg-white border border-neutral-200 text-neutral-600 hover:border-brand-gold" data-cat="renovation">老屋翻新</button>
+      <button onclick="filterCategory('commercial')" class="cat-btn px-5 py-2 rounded-full text-xs font-medium tracking-wider transition-all bg-white border border-neutral-200 text-neutral-600 hover:border-brand-gold" data-cat="commercial">商業空間</button>
+    </div>
+
+    <!-- 作品網格 -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="portfolio-grid">
       <!-- 作品卡片 1 -->
-      <div class="group relative overflow-hidden rounded-2xl bg-white shadow-sm border border-neutral-100 hover:shadow-xl transition-all duration-500">
-        <div class="aspect-[4/3] overflow-hidden bg-neutral-100">
-          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="客廳案例" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+      <div class="portfolio-card cursor-pointer group relative overflow-hidden rounded-2xl bg-white shadow-sm border border-neutral-100 hover:shadow-xl transition-all duration-500" data-cat="residential" onclick="openModal(0)">
+        <div class="aspect-[4/3] overflow-hidden bg-neutral-100 relative">
+          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="青埔 ‧ 侘寂光影" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+          <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+            <span class="px-4 py-2 bg-white/90 backdrop-blur text-xs font-medium tracking-wider rounded-full shadow-lg">查看案例細節 ➔</span>
+          </div>
         </div>
         <div class="p-6">
           <div class="flex justify-between items-baseline mb-2">
@@ -106,9 +119,12 @@
       </div>
 
       <!-- 作品卡片 2 -->
-      <div class="group relative overflow-hidden rounded-2xl bg-white shadow-sm border border-neutral-100 hover:shadow-xl transition-all duration-500">
-        <div class="aspect-[4/3] overflow-hidden bg-neutral-100">
-          <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=800&q=80" alt="開放廚房" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+      <div class="portfolio-card cursor-pointer group relative overflow-hidden rounded-2xl bg-white shadow-sm border border-neutral-100 hover:shadow-xl transition-all duration-500" data-cat="residential" onclick="openModal(1)">
+        <div class="aspect-[4/3] overflow-hidden bg-neutral-100 relative">
+          <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=800&q=80" alt="竹北 ‧ 現代輕奢" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+          <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+            <span class="px-4 py-2 bg-white/90 backdrop-blur text-xs font-medium tracking-wider rounded-full shadow-lg">查看案例細節 ➔</span>
+          </div>
         </div>
         <div class="p-6">
           <div class="flex justify-between items-baseline mb-2">
@@ -120,9 +136,12 @@
       </div>
 
       <!-- 作品卡片 3 -->
-      <div class="group relative overflow-hidden rounded-2xl bg-white shadow-sm border border-neutral-100 hover:shadow-xl transition-all duration-500">
-        <div class="aspect-[4/3] overflow-hidden bg-neutral-100">
-          <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=80" alt="主臥室" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+      <div class="portfolio-card cursor-pointer group relative overflow-hidden rounded-2xl bg-white shadow-sm border border-neutral-100 hover:shadow-xl transition-all duration-500" data-cat="renovation" onclick="openModal(2)">
+        <div class="aspect-[4/3] overflow-hidden bg-neutral-100 relative">
+          <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=80" alt="新板 ‧ 靜謐沈著" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+          <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+            <span class="px-4 py-2 bg-white/90 backdrop-blur text-xs font-medium tracking-wider rounded-full shadow-lg">查看案例細節 ➔</span>
+          </div>
         </div>
         <div class="p-6">
           <div class="flex justify-between items-baseline mb-2">
@@ -130,6 +149,23 @@
             <span class="text-xs text-neutral-400">老屋翻新 / 28 坪</span>
           </div>
           <p class="text-xs text-neutral-500 line-clamp-2">大地色織品與客製化隱藏收納系統，為屋主打造無壓力的靜心私領域。</p>
+        </div>
+      </div>
+
+      <!-- 作品卡片 4 -->
+      <div class="portfolio-card cursor-pointer group relative overflow-hidden rounded-2xl bg-white shadow-sm border border-neutral-100 hover:shadow-xl transition-all duration-500" data-cat="commercial" onclick="openModal(3)">
+        <div class="aspect-[4/3] overflow-hidden bg-neutral-100 relative">
+          <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=800&q=80" alt="大安 ‧ 藝廊咖啡" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+          <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+            <span class="px-4 py-2 bg-white/90 backdrop-blur text-xs font-medium tracking-wider rounded-full shadow-lg">查看案例細節 ➔</span>
+          </div>
+        </div>
+        <div class="p-6">
+          <div class="flex justify-between items-baseline mb-2">
+            <h3 class="text-lg font-bold text-neutral-800 group-hover:text-brand-gold transition-colors">大安 ‧ 藝廊咖啡</h3>
+            <span class="text-xs text-neutral-400">商業空間 / 50 坪</span>
+          </div>
+          <p class="text-xs text-neutral-500 line-clamp-2">保留原始水泥肌理與裸露管線，融合暖色氛圍燈光，形塑沉靜的藝術聚落。</p>
         </div>
       </div>
     </div>
@@ -228,6 +264,127 @@
       <p class="text-neutral-500">© 2026 Artisan Space Design. All rights reserved. (Demo Template)</p>
     </div>
   </footer>
- 
+
+  <!-- 右下角浮動 LINE 按鈕 -->
+  <a href="#contact" class="fixed bottom-6 right-6 z-40 flex items-center gap-2.5 px-4 py-3 bg-[#06C755] text-white rounded-full shadow-2xl hover:scale-105 active:scale-95 transition-all duration-300">
+    <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+      <path d="M12 2C6.48 2 2 5.92 2 10.75c0 3.01 1.77 5.67 4.5 7.15-.2.74-.71 2.68-.81 3.11-.13.56.2.55.43.4.17-.11 2.37-1.57 3.32-2.22.84.14 1.7.21 2.56.21 5.52 0 10-3.92 10-8.75S17.52 2 12 2z"/>
+    </svg>
+    <span class="text-xs font-bold tracking-wider hidden sm:inline">LINE 快速諮詢</span>
+  </a>
+
+  <!-- 作品詳細 Lightbox Modal 彈窗 -->
+  <div id="project-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden items-center justify-center p-4 md:p-6 opacity-0 transition-opacity duration-300" onclick="closeModal(event)">
+    <div class="bg-white rounded-3xl max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative animate-in" onclick="event.stopPropagation()">
+      <!-- 關閉按鈕 -->
+      <button onclick="closeModal()" class="absolute top-4 right-4 z-10 w-9 h-9 bg-white/80 backdrop-blur rounded-full flex items-center justify-center text-neutral-600 hover:bg-neutral-100 transition-colors text-lg font-bold">✕</button>
+      
+      <div class="aspect-[16/10] w-full overflow-hidden bg-neutral-100">
+        <img id="modal-img" src="" alt="" class="w-full h-full object-cover">
+      </div>
+      
+      <div class="p-6 md:p-8 space-y-4">
+        <div class="flex flex-wrap items-baseline justify-between gap-2 border-b border-neutral-100 pb-4">
+          <div>
+            <span id="modal-tag" class="text-xs font-serif uppercase tracking-widest text-brand-gold block font-semibold"></span>
+            <h3 id="modal-title" class="text-2xl font-bold text-neutral-900 mt-1"></h3>
+          </div>
+          <span id="modal-meta" class="text-xs text-neutral-500 font-medium"></span>
+        </div>
+        
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-wider text-neutral-400 mb-2">設計概念與材質規劃</h4>
+          <p id="modal-desc" class="text-sm text-neutral-600 leading-relaxed font-light"></p>
+        </div>
+
+        <div class="pt-4">
+          <a href="#contact" onclick="closeModal()" class="block text-center w-full py-3.5 bg-brand-dark text-white rounded-xl text-xs tracking-widest font-medium hover:bg-brand-gold transition-colors">
+            諮詢類似風格案例 ➔
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 互動腳本 -->
+  <script>
+    const projects = [
+      {
+        title: "青埔 ‧ 侘寂光影",
+        tag: "Residential Design",
+        meta: "住宅空間 ‧ 42 坪 ‧ 桃園中壢",
+        desc: "本案以日式侘寂（Wabi-sabi）哲學為核心，全室採用大面積礦物塗料與天然橡木皮，摒除繁複裝飾。透過百葉簾將午後的光影引入室內，營造出寧靜沉穩的生活氛圍。",
+        img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80"
+      },
+      {
+        title: "竹北 ‧ 現代輕奢",
+        tag: "Modern Luxury",
+        meta: "新成屋 ‧ 36 坪 ‧ 新竹竹北",
+        desc: "以大理石中島為公領域視覺重心，搭配金屬鍍鈦收邊與懸空收納櫃體，在俐落的現代幾何線條中，展現精緻內斂的奢華質感。",
+        img: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1200&q=80"
+      },
+      {
+        title: "新板 ‧ 靜謐沈著",
+        tag: "Renovation Project",
+        meta: "老屋翻新 ‧ 28 坪 ‧ 新北板橋",
+        desc: "拆除 30 年老屋封閉隔間，重塑採光與通風動線。主臥與衛浴整合為流暢的套房動線，運用大地色織品打造無壓力的靜心私領域。",
+        img: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1200&q=80"
+      },
+      {
+        title: "大安 ‧ 藝廊咖啡",
+        tag: "Commercial Space",
+        meta: "商業空間 ‧ 50 坪 ‧ 台北大安",
+        desc: "打破商業空間與藝廊的界線，以原始水泥肌理與裸露結構管線為底，搭配精心配置的軌道投射燈，讓空間本身成為陳列藝術品的舞台。",
+        img: "https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1200&q=80"
+      }
+    ];
+
+    // 分類篩選
+    function filterCategory(cat) {
+      const cards = document.querySelectorAll('.portfolio-card');
+      const btns = document.querySelectorAll('.cat-btn');
+
+      btns.forEach(btn => {
+        if (btn.dataset.cat === cat) {
+          btn.className = "cat-btn px-5 py-2 rounded-full text-xs font-medium tracking-wider transition-all bg-brand-dark text-white shadow-sm";
+        } else {
+          btn.className = "cat-btn px-5 py-2 rounded-full text-xs font-medium tracking-wider transition-all bg-white border border-neutral-200 text-neutral-600 hover:border-brand-gold";
+        }
+      });
+
+      cards.forEach(card => {
+        if (cat === 'all' || card.dataset.cat === cat) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // Lightbox 彈窗開關
+    const modal = document.getElementById('project-modal');
+    function openModal(index) {
+      const data = projects[index];
+      document.getElementById('modal-img').src = data.img;
+      document.getElementById('modal-title').innerText = data.title;
+      document.getElementById('modal-tag').innerText = data.tag;
+      document.getElementById('modal-meta').innerText = data.meta;
+      document.getElementById('modal-desc').innerText = data.desc;
+
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      setTimeout(() => modal.classList.remove('opacity-0'), 10);
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal(e) {
+      modal.classList.add('opacity-0');
+      setTimeout(() => {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        document.body.style.overflow = '';
+      }, 300);
+    }
+  </script>
 </body>
 </html>
