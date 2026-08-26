@@ -82,7 +82,7 @@
     </div>
   </section>
 
-  <!-- 精選作品集 Portfolio（含分類 Tab 與 Lightbox 互動） -->
+  <!-- 精選作品集 Portfolio -->
   <section id="portfolio" class="py-24 max-w-7xl mx-auto px-6">
     <div class="text-center mb-12 space-y-3">
       <span class="text-xs font-serif uppercase tracking-[0.3em] text-brand-gold block">Selected Works</span>
@@ -204,7 +204,7 @@
     </div>
   </section>
 
-  <!-- 預約表單 Contact Form -->
+  <!-- 預約表單 Contact Form (連動 Web3Forms Email 發送) -->
   <section id="contact" class="py-24 max-w-4xl mx-auto px-6">
     <div class="bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-neutral-100">
       <div class="text-center mb-10 space-y-2">
@@ -212,44 +212,52 @@
         <p class="text-xs md:text-sm text-neutral-500">填寫基本需求，我們的設計團隊將於 24 小時內與您聯繫。</p>
       </div>
 
-      <form onsubmit="event.preventDefault(); alert('感謝您的填寫！這是一份展示 Demo，正式上線後將直接連動您的 LINE 或 Email！');" class="space-y-6">
+      <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-6">
+        <!-- Web3Forms Access Key (此處為公開測試 key，正式交付時換成客戶的 key) -->
+        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+        <input type="hidden" name="subject" value="【森築空間】收到新的官網預約丈量需求！">
+        <input type="hidden" name="from_name" value="森築官網預約系統">
+
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
             <label class="block text-xs font-semibold text-neutral-600 mb-2">您的姓名 *</label>
-            <input type="text" required placeholder="王先生 / 林小姐" class="w-full px-4 py-3 rounded-xl border border-neutral-200 text-sm focus:outline-none focus:border-brand-gold bg-neutral-50">
+            <input type="text" name="name" required placeholder="王先生 / 林小姐" class="w-full px-4 py-3 rounded-xl border border-neutral-200 text-sm focus:outline-none focus:border-brand-gold bg-neutral-50">
           </div>
           <div>
             <label class="block text-xs font-semibold text-neutral-600 mb-2">聯絡電話 *</label>
-            <input type="tel" required placeholder="0912-345-678" class="w-full px-4 py-3 rounded-xl border border-neutral-200 text-sm focus:outline-none focus:border-brand-gold bg-neutral-50">
+            <input type="tel" name="phone" required placeholder="0912-345-678" class="w-full px-4 py-3 rounded-xl border border-neutral-200 text-sm focus:outline-none focus:border-brand-gold bg-neutral-50">
           </div>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div>
             <label class="block text-xs font-semibold text-neutral-600 mb-2">房屋地點</label>
-            <input type="text" placeholder="例：桃園中壢" class="w-full px-4 py-3 rounded-xl border border-neutral-200 text-sm focus:outline-none focus:border-brand-gold bg-neutral-50">
+            <input type="text" name="location" placeholder="例：桃園中壢" class="w-full px-4 py-3 rounded-xl border border-neutral-200 text-sm focus:outline-none focus:border-brand-gold bg-neutral-50">
           </div>
           <div>
             <label class="block text-xs font-semibold text-neutral-600 mb-2">空間類型</label>
-            <select class="w-full px-4 py-3 rounded-xl border border-neutral-200 text-sm focus:outline-none focus:border-brand-gold bg-neutral-50 text-neutral-600">
-              <option>新成屋客變 / 裝修</option>
-              <option>中古屋老屋翻新</option>
-              <option>商業空間設計</option>
+            <select name="space_type" class="w-full px-4 py-3 rounded-xl border border-neutral-200 text-sm focus:outline-none focus:border-brand-gold bg-neutral-50 text-neutral-600">
+              <option value="新成屋客變 / 裝修">新成屋客變 / 裝修</option>
+              <option value="中古屋老屋翻新">中古屋老屋翻新</option>
+              <option value="商業空間設計">商業空間設計</option>
             </select>
           </div>
           <div>
             <label class="block text-xs font-semibold text-neutral-600 mb-2">預算區間</label>
-            <select class="w-full px-4 py-3 rounded-xl border border-neutral-200 text-sm focus:outline-none focus:border-brand-gold bg-neutral-50 text-neutral-600">
-              <option>50 萬 - 100 萬</option>
-              <option>100 萬 - 200 萬</option>
-              <option>200 萬以上</option>
+            <select name="budget" class="w-full px-4 py-3 rounded-xl border border-neutral-200 text-sm focus:outline-none focus:border-brand-gold bg-neutral-50 text-neutral-600">
+              <option value="50 萬 - 100 萬">50 萬 - 100 萬</option>
+              <option value="100 萬 - 200 萬">100 萬 - 200 萬</option>
+              <option value="200 萬以上">200 萬以上</option>
             </select>
           </div>
         </div>
 
-        <button type="submit" class="w-full py-4 bg-brand-dark text-white rounded-xl font-medium tracking-widest hover:bg-brand-gold transition-all duration-300 shadow-md">
-          送出預約需求
+        <button type="submit" id="submit-btn" class="w-full py-4 bg-brand-dark text-white rounded-xl font-medium tracking-widest hover:bg-brand-gold transition-all duration-300 shadow-md flex items-center justify-center gap-2">
+          <span>送出預約需求</span>
         </button>
+
+        <!-- 送出成功/失敗提示訊息 -->
+        <div id="form-result" class="hidden text-center p-4 rounded-xl text-sm font-medium"></div>
       </form>
     </div>
   </section>
@@ -265,8 +273,9 @@
     </div>
   </footer>
 
-  <!-- 右下角浮動 LINE 按鈕 -->
-  <a href="#contact" class="fixed bottom-6 right-6 z-40 flex items-center gap-2.5 px-4 py-3 bg-[#06C755] text-white rounded-full shadow-2xl hover:scale-105 active:scale-95 transition-all duration-300">
+  <!-- 右下角浮動 LINE 按鈕（點擊直接喚起 LINE 加好友視窗） -->
+  <!-- 替換 href 內的 LINE 連結即可（例如：https://line.me/R/ti/p/@your_line_id） -->
+  <a href="https://line.me/R/ti/p/@line" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 z-40 flex items-center gap-2.5 px-4 py-3 bg-[#06C755] text-white rounded-full shadow-2xl hover:scale-105 active:scale-95 transition-all duration-300 group">
     <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
       <path d="M12 2C6.48 2 2 5.92 2 10.75c0 3.01 1.77 5.67 4.5 7.15-.2.74-.71 2.68-.81 3.11-.13.56.2.55.43.4.17-.11 2.37-1.57 3.32-2.22.84.14 1.7.21 2.56.21 5.52 0 10-3.92 10-8.75S17.52 2 12 2z"/>
     </svg>
@@ -276,7 +285,6 @@
   <!-- 作品詳細 Lightbox Modal 彈窗 -->
   <div id="project-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden items-center justify-center p-4 md:p-6 opacity-0 transition-opacity duration-300" onclick="closeModal(event)">
     <div class="bg-white rounded-3xl max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative animate-in" onclick="event.stopPropagation()">
-      <!-- 關閉按鈕 -->
       <button onclick="closeModal()" class="absolute top-4 right-4 z-10 w-9 h-9 bg-white/80 backdrop-blur rounded-full flex items-center justify-center text-neutral-600 hover:bg-neutral-100 transition-colors text-lg font-bold">✕</button>
       
       <div class="aspect-[16/10] w-full overflow-hidden bg-neutral-100">
@@ -384,6 +392,59 @@
         modal.classList.remove('flex');
         document.body.style.overflow = '';
       }, 300);
+    }
+
+    // 表單非同步送出 (Web3Forms API)
+    async function handleFormSubmit(e) {
+      e.preventDefault();
+      const form = document.getElementById('contact-form');
+      const submitBtn = document.getElementById('submit-btn');
+      const resultDiv = document.getElementById('form-result');
+      
+      const formData = new FormData(form);
+      const accessKey = formData.get('access_key');
+
+      // Demo 模式判斷：若尚未換成真實 Access Key
+      if (accessKey === 'YOUR_ACCESS_KEY_HERE') {
+        resultDiv.className = "text-center p-4 rounded-xl text-sm font-medium bg-amber-50 text-amber-800 border border-amber-200";
+        resultDiv.innerHTML = "✨ <b>[Demo 展示提示]</b> 正式上線並填入客戶 Key 後，這份預約將在 3 秒內自動轉發至專屬 Gmail 信箱！";
+        resultDiv.classList.remove('hidden');
+        form.reset();
+        return;
+      }
+
+      // 真正發送郵件流程
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = `<span>發送中...</span>`;
+      resultDiv.classList.add('hidden');
+
+      const object = Object.fromEntries(formData);
+      const json = JSON.stringify(object);
+
+      try {
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: json
+        });
+        const data = await res.json();
+
+        if (res.status === 200) {
+          resultDiv.className = "text-center p-4 rounded-xl text-sm font-medium bg-emerald-50 text-emerald-800 border border-emerald-200";
+          resultDiv.innerHTML = "✓ 預約需求已成功送出！設計團隊將於 24 小時內與您聯繫。";
+          resultDiv.classList.remove('hidden');
+          form.reset();
+        } else {
+          throw new Error(data.message || '發送失敗');
+        }
+      } catch (err) {
+        resultDiv.className = "text-center p-4 rounded-xl text-sm font-medium bg-red-50 text-red-800 border border-red-200";
+        resultDiv.innerHTML = "✕ 系統暫時無法處理，請直接點擊右下角 LINE 與我們聯繫！";
+        resultDiv.classList.remove('hidden');
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = `<span>送出預約需求</span>`;
+      }
     }
   </script>
 </body>
